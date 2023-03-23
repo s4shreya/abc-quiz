@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DisplayedQuestion from "./DisplayedQuestion";
 
 function Question(props) {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([-1, -1, -1, -1, -1]);
 
@@ -51,6 +53,7 @@ function Question(props) {
   const submitQuizHandler = () => {
     const result = calculateScore();
     console.log("result is  " + result.totalScore);
+    navigate("/result", {replace: true, state: {resultData: result} });
   };
 
   return (
