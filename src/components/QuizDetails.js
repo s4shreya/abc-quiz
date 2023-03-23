@@ -14,12 +14,14 @@ import QuizRulesModal from "./QuizRulesModal";
 import styles from "./QuizDetails.module.css";
 
 function QuizDetails() {
-    const [ isModalOpen, setIsModalOpen ] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleTakeQuiz = () => setIsModalOpen(true);
+  const handleTakeQuiz = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
 
   return (
     <div className={styles.container}>
+        <div className={styles.content}>
       <h1>The Daily MS Excel Quiz</h1>
       <section className={styles.options}>
         <ul className={styles["left-col"]}>
@@ -65,8 +67,11 @@ function QuizDetails() {
           </li>
         </ul>
       </section>
-      <button className={styles.btn} onClick={handleTakeQuiz}>Take Quiz</button>
-      {isModalOpen && <QuizRulesModal />}
+      <button className={styles.btn} onClick={handleTakeQuiz}>
+        Take Quiz
+      </button>
+      </div>
+      {isModalOpen && <QuizRulesModal handleClose={handleClose} />}
     </div>
   );
 }
