@@ -14,7 +14,6 @@ function Question(props) {
     const currentAnswers = selectedAnswers;
     currentAnswers[qno - 1] = optionIndex;
     setSelectedAnswers(currentAnswers);
-    console.log("in question parent" + selectedAnswers);
   };
   const calculateScore = () => {
     const totalQuestions = selectedAnswers.length;
@@ -52,7 +51,6 @@ function Question(props) {
   };
   const submitQuizHandler = () => {
     const result = calculateScore();
-    console.log("result is  " + result.totalScore);
     navigate("/result", {replace: true, state: {resultData: result} });
   };
 

@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const DisplayedQuestion = (props) => {
+    const [ optionSelected, setOptionSelected ] = useState("");
 
   const question = props.displayQuestion;
 
@@ -12,6 +15,7 @@ const DisplayedQuestion = (props) => {
     props.submitQuiz();
   };
   const handleOptionSelection = (e) => {
+    setOptionSelected(question.options[e.target.value].answer)
     props.optionSelected(question.no, e.target.value);
   };
 
@@ -31,6 +35,7 @@ const DisplayedQuestion = (props) => {
                 id={option.answer}
                 value={i}
                 name={question.no}
+                checked={optionSelected === option.answer}
                 onChange={handleOptionSelection}
               />
             </li>

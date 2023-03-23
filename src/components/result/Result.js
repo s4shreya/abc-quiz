@@ -1,11 +1,16 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { BiShareAlt } from 'react-icons/bi';
 
 import styles from './Result.module.css';
 
 const Result = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const result = location.state.resultData;
+
+    const showAnswers = () => {
+        navigate("/quiz");
+    };
 
     return (
         <div className={styles.container}>
@@ -36,7 +41,7 @@ const Result = () => {
                     <li>Ronita Sarkar</li>
                 </ol>
             </div>
-            <button className={styles.btn}>Answers</button>
+            <button className={styles.btn} onClick={showAnswers}>Answers</button>
 
         </div>
     );
