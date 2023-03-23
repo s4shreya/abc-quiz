@@ -54,9 +54,11 @@ function QuizQuestionsList() {
     },
   ];
 
-  return <div>
-    <Question questionData={questions} />
-  </div>;
+  return (
+    <div>
+      <Question questionData={questions} />
+    </div>
+  );
 }
 
 export default QuizQuestionsList;

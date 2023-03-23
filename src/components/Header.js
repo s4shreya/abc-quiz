@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import QuizDetails from './QuizDetails';
+// import { Link } from 'react-router-dom';
+// import QuizDetails from './QuizDetails';
 
 const Header = () => {
     return (
