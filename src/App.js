@@ -1,6 +1,10 @@
+import QuizDetails from "./components/QuizDetails";
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <QuizDetails />
+    </div>
   );
 }
 
