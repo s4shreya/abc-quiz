@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CountdownTimer from "./CountdownTimer";
 import DisplayedQuestion from "./DisplayedQuestion";
 
 function Question(props) {
@@ -59,6 +60,9 @@ function Question(props) {
 
   return (
     <div>
+      <div>
+        <CountdownTimer />
+      </div>
       <DisplayedQuestion
         currentQuestion={currentQuestion}
         displayQuestion={question[currentQuestion]}
