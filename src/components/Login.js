@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import styles from "./Login.module.css";
+import QuizContext from "../store/quiz-context";
 
 const Login = () => {
   const navigate = useNavigate();
+  const quizCtxt = useContext(QuizContext);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    quizCtxt.updateQuizSubmitted(false, []);
     navigate("/quiz-details", { replace: true });
   };
 
