@@ -20,6 +20,10 @@ const CountdownTimer = props => {
   let mins = currentTimer.mins,
     sec = currentTimer.sec;
 
+    if(mins === 0 && sec === 0) {
+      props.submitQuiz();
+    }
+
   useEffect(() => {
     timerRef.current = setInterval(decreaseTimer, 1000);
   }, []);

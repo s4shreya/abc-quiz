@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import QuizContext from "../../store/quiz-context";
 import CountdownTimer from "./CountdownTimer";
 import DisplayedQuestion from "./DisplayedQuestion";
+import TimeTaken from "./TimeTaken";
 
 function Question(props) {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([-1, -1, -1, -1, -1]);
+  const quizCtxt = useContext(QuizContext);
 
   const question = props.questionData;
   const handleNextQuestion = () => setCurrentQuestion(currentQuestion + 1);
@@ -60,7 +63,7 @@ function Question(props) {
     });
   };
 
-  let totalTimeTaken = { minutes: 5, seconds: 0 };
+  let totalTimeTaken = { minutes: 0, seconds: 56 };
   const totalMinutes = 4,
     totalSeconds = 60;
 
@@ -72,7 +75,11 @@ function Question(props) {
   return (
     <div>
       <div>
-        <CountdownTimer currentTimer={currentTimeTaken} />
+        {quizCtxt.quizSubmitted ? (
+          <TimeTaken timeTaken={totalTimeTaken} />
+        ) : (
+          <CountdownTimer currentTimer={currentTimeTaken} submitQuiz={submitQuizHandler} />
+        )}
       </div>
       <DisplayedQuestion
         currentQuestion={currentQuestion}

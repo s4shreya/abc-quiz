@@ -1,10 +1,12 @@
-// import { Link } from 'react-router-dom';
-// import QuizDetails from './QuizDetails';
+import { Link } from "react-router-dom";
+import { AiFillHome } from 'react-icons/ai';
+
+import styles from './Header.module.css';
 
 const Header = () => {
     return (
         <div>
-            {/* <h1><Link to={<QuizDetails />}>Quiz</Link></h1> */}
+            <Link className={styles["home-btn"]} to="/"><AiFillHome /></Link>
         </div>
     );
 }
