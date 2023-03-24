@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 import styles from "./CountdownTimer.module.css";
 
-const CountdownTimer = () => {
+const CountdownTimer = props => {
   const [timer, setTimer] = useState(300);
 
   let timerRef = useRef();
@@ -12,6 +12,7 @@ const CountdownTimer = () => {
   let calculateTime = () => {
     let minutes = Math.floor(timer / 60);
     let seconds = timer % 60;
+    props.currentTimer(minutes, seconds);
     return { mins: minutes, sec: seconds };
   };
 

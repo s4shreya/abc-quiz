@@ -1,35 +1,205 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  background-color: rgb(237, 226, 212);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  background-color: rgb(252, 252, 252);
   border-radius: 20px;
-  padding: 30px;
+  padding: 0 30px;
   margin-top: 20px;
 }
 
+.content {
+  background-color: rgb(237, 226, 212);
+  border-radius: 10px;
+}
+
+.heading {
+  color: purple;
+  letter-spacing: 2px;
+}
+
+.result-msg {
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px grey;
+  padding: 10px;
+}
+
+.result-msg h5 {
+  color: green;
+  margin: 0;
+}
+
+.result-msg h3 {
+  color: purple;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.message {
+  font-weight: 700;
+  margin: 0;
+}
+
+.quote {
+  font-size: small;
+  color: gray;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 60px;
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+.row li {
+  list-style-type: none;
+}
+
+.row ul {
+  padding-left: 0;
+}
+
+.row li:nth-child(1) {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.row li:nth-child(2) {
+  color: purple;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.row li:nth-child(3),
+.row li:nth-child(2) span {
+  font-size: 13px;
+  color: black;
+  font-weight: 500;
+}
+
+.company-name {
+  color: purple;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-shadow: 8px 1px rgb(88, 192, 236);
+  margin: 0;
+}
+
+.share svg {
+  color: green;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.share span {
+  position: relative;
+  bottom: 5px;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.row-2 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0;
+}
+
+.row-2 h5 {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.row-2 span {
+  color: green;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.leaderboard ol {
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard li {
+  border: 1px solid gray;
+  height: 35px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding: 10px 0 0 10px;
+  list-style-position: inside;
+}
+
+.leaderboard li::marker {
+  color: green;
+}
+
+.followers {
+  float: right;
+  padding: 5px;
+  margin: 0 10px;
+  line-height: 100%;
+  background-color: rgb(13, 172, 71);
+  border-radius: 20px;
+}
+
+.followers svg {
+  padding-right: 10px;
+  font-size: 15px;
+  color: gold;
+}
+
 .btn {
-    margin: auto;
-    width: 15%;
-    background-color: purple;
-    color: white;
-    border: 0;
-    border-radius: 20px;
-    padding: 10px;
-    font-weight: 600;
-  }
-  
-  .btn:hover {
-    background-color: rgb(184, 64, 184);
-    cursor: pointer;
+  margin: auto;
+  width: 20%;
+  background-color: purple;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: rgb(184, 64, 184);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  @media screen and (max-width: 600px) {
-    .container {
-        box-sizing: border-box;
-      width: 100%;
-      margin: 0;
-      /* padding: 0; */
-    }
+  .leaderboard {
+    width: 100%;
   }
+
+  .leaderboard li:nth-child(2) {
+    display: none;
+  }
+
+  .heading {
+    font-size: 25px;
+  }
+}
