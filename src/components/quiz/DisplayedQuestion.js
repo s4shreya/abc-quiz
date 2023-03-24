@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styles from './DisplayedQuestion.module.css';
+
 const DisplayedQuestion = (props) => {
     const [ optionSelected, setOptionSelected ] = useState("");
 
@@ -26,8 +28,10 @@ const DisplayedQuestion = (props) => {
       </p>
       <ol>
         {question.options.map((option, i) => {
+            console.log("answers submitted" + props.answersSubmitted);
           return (
-            <li key={i}>
+            <li key={i} className={props.answersSubmitted && option.correct ? styles.selected : styles.option}
+            >
               <label htmlFor={option.answer}>
               {option.answer}</label>
               <input

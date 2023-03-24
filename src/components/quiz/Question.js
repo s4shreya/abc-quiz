@@ -6,6 +6,7 @@ function Question(props) {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([-1, -1, -1, -1, -1]);
+  const [ quizSubmitted, setQuizSubmitted ] = useState(false);
 
   const question = props.questionData;
   const handleNextQuestion = () => setCurrentQuestion(currentQuestion + 1);
@@ -51,6 +52,8 @@ function Question(props) {
   };
   const submitQuizHandler = () => {
     const result = calculateScore();
+    setQuizSubmitted(true);
+   
     navigate("/result", {replace: true, state: {resultData: result} });
   };
 
@@ -63,6 +66,7 @@ function Question(props) {
         handlePreviousQuestion={handlePreviousQuestion}
         optionSelected={optionSelected}
         submitQuiz={submitQuizHandler}
+        answersSubmitted={quizSubmitted}
       />
     </div>
   );

@@ -9,7 +9,7 @@ const Result = () => {
     const result = location.state.resultData;
 
     const showAnswers = () => {
-        navigate("/quiz");
+        navigate("/quiz", {state: {answersSubmitted: true}});
     };
 
     return (
