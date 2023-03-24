@@ -21,3 +21,9 @@
 .timer {
   color: red;
 }
+
+@media screen and (max-width: 600px) {
+  .content {
+    margin: 10px 5px;
+  }
+}

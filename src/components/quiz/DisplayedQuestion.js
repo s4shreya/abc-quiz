@@ -18,6 +18,7 @@ const DisplayedQuestion = (props) => {
   };
   const handleOptionSelection = (e) => {
     setOptionSelected(question.options[e.target.value].answer);
+    console.log(optionSelected);
     props.optionSelected(question.no, e.target.value);
   };
 
