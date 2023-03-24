@@ -32,7 +32,7 @@
 }
 
 .selected {
-    background-color: green;
+    background-color: rgb(64, 230, 64);
 }
 
 /* .option {
@@ -79,4 +79,8 @@
   .prev-btn:hover {
     background-color: rgb(8, 69, 112);
     cursor: pointer;
+  }
+
+  .disabled:hover {
+    cursor: no-drop;
   }

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
+import QuizContext from "../../store/quiz-context";
 import styles from "./DisplayedQuestion.module.css";
 
 const DisplayedQuestion = (props) => {
   const [optionSelected, setOptionSelected] = useState("");
+  const quizCtxt = useContext(QuizContext);
 
   const question = props.displayQuestion;
 
@@ -14,6 +16,7 @@ const DisplayedQuestion = (props) => {
     props.handlePreviousQuestion();
   };
   const handleSubmitQuiz = () => {
+    quizCtxt.updateQuizSubmitted(true, props.selectedAnswers);
     props.submitQuiz();
   };
   const handleOptionSelection = (e) => {
@@ -29,13 +32,20 @@ const DisplayedQuestion = (props) => {
           Q.{question.no} {question.text}
         </p>
         <hr className={styles.ruler} />
-        <ol type="A" className={styles.list}>
+        <ol
+          type="A"
+          className={
+            quizCtxt.quizSubmitted
+              ? `${styles.disabled} ${styles.list}`
+              : `${styles.list}`
+          }
+        >
           {question.options.map((option, i) => {
             return (
               <li
                 key={i}
                 className={
-                  props.answersSubmitted && option.correct
+                  quizCtxt.quizSubmitted && option.correct
                     ? styles.selected
                     : styles.option
                 }
@@ -47,7 +57,17 @@ const DisplayedQuestion = (props) => {
                   value={i}
                   name={question.no}
                   checked={
-                    Number(props.selectedAnswers[question.no - 1]) === i
+                    quizCtxt.quizSubmitted
+                      ? Number(quizCtxt.submittedAnswers[question.no - 1]) === i
+                        ? true
+                        : false
+                      : Number(props.selectedAnswers[question.no - 1]) === i
+                      ? true
+                      : false
+                  }
+                  disabled={
+                    quizCtxt.quizSubmitted &&
+                    Number(quizCtxt.submittedAnswers[question.no - 1]) !== i
                       ? true
                       : false
                   }
@@ -77,7 +97,12 @@ const DisplayedQuestion = (props) => {
           ) : (
             <button
               onClick={handleSubmitQuiz}
-              className={`${styles.btn} ${styles["submit-btn"]}`}
+              className={
+                quizCtxt.quizSubmitted
+                  ? `${styles.btn} ${styles["submit-btn"]} ${styles.disabled}`
+                  : `${styles.btn} ${styles["submit-btn"]}`
+              }
+              disabled={quizCtxt.quizSubmitted ? true : false}
             >
               Submit
             </button>

@@ -7,11 +7,12 @@ import styles from "./Result.module.css";
 const Result = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const result = location.state.resultData;
   const timeTaken = location.state.timeTaken;
 
   const showAnswers = () => {
-    navigate("/quiz", { state: { answersSubmitted: true } });
+    navigate("/quiz");
   };
 
   return (

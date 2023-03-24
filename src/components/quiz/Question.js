@@ -7,7 +7,6 @@ function Question(props) {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([-1, -1, -1, -1, -1]);
-  const [ quizSubmitted, setQuizSubmitted ] = useState(false);
 
   const question = props.questionData;
   const handleNextQuestion = () => setCurrentQuestion(currentQuestion + 1);
@@ -55,23 +54,25 @@ function Question(props) {
   };
   const submitQuizHandler = () => {
     const result = calculateScore();
-    setQuizSubmitted(true);
-   
-    navigate("/result", {replace: true, state: {resultData: result, timeTaken: totalTimeTaken} });
+    navigate("/result", {
+      replace: true,
+      state: { resultData: result, timeTaken: totalTimeTaken },
+    });
   };
 
-    let totalTimeTaken = {minutes: 5, seconds: 0};
-  const totalMinutes = 4,  totalSeconds = 60;
+  let totalTimeTaken = { minutes: 5, seconds: 0 };
+  const totalMinutes = 4,
+    totalSeconds = 60;
 
   const currentTimeTaken = (mins, sec) => {
-      totalTimeTaken.minutes = totalMinutes - mins;
-      totalTimeTaken.seconds = totalSeconds - sec;
+    totalTimeTaken.minutes = totalMinutes - mins;
+    totalTimeTaken.seconds = totalSeconds - sec;
   };
 
   return (
     <div>
       <div>
-        <CountdownTimer currentTimer={currentTimeTaken}/>
+        <CountdownTimer currentTimer={currentTimeTaken} />
       </div>
       <DisplayedQuestion
         currentQuestion={currentQuestion}
@@ -80,7 +81,6 @@ function Question(props) {
         handlePreviousQuestion={handlePreviousQuestion}
         optionSelected={optionSelected}
         submitQuiz={submitQuizHandler}
-        answersSubmitted={quizSubmitted}
         selectedAnswers={selectedAnswers}
       />
     </div>
