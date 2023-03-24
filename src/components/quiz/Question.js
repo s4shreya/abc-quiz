@@ -67,6 +67,7 @@ function Question(props) {
         optionSelected={optionSelected}
         submitQuiz={submitQuizHandler}
         answersSubmitted={quizSubmitted}
+        selectedAnswers={selectedAnswers}
       />
     </div>
   );

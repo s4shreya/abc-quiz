@@ -28,9 +28,10 @@ const DisplayedQuestion = (props) => {
         Q.{question.no} {question.text}
       </p>
       <hr className={styles.ruler}/>
-      <ol type="A" className={styles.list}>
+      <ol type="A" className={styles.list} >
         {question.options.map((option, i) => {
-            console.log("answers submitted" + props.answersSubmitted);
+          console.log("selected answer is " + props.selectedAnswers[question.no-1]);
+            // console.log("answers submitted" + props.answersSubmitted);
           return (
             <li key={i} className={props.answersSubmitted && option.correct ? styles.selected : styles.option}
             >
@@ -41,8 +42,9 @@ const DisplayedQuestion = (props) => {
                 id={option.answer}
                 value={i}
                 name={question.no}
-                checked={optionSelected === option.answer}
+                checked={props.selectedAnswers[question.no - 1] == i ? true : false}
                 onChange={handleOptionSelection}
+                // checked={optionSelected === option.answer}
                 className={styles.radio}
               />
             </li>
