@@ -63,13 +63,23 @@ function Question(props) {
     });
   };
 
-  let totalTimeTaken = { minutes: 0, seconds: 56 };
-  const totalMinutes = 4,
+  const autoSubmit = () => {
+    quizCtxt.updateQuizSubmitted(true, selectedAnswers);
+    submitQuizHandler();
+  };
+
+  let totalTimeTaken = { minutes: 0, seconds: 19 };
+  const totalMinutes = 0,
     totalSeconds = 60;
 
   const currentTimeTaken = (mins, sec) => {
-    totalTimeTaken.minutes = totalMinutes - mins;
-    totalTimeTaken.seconds = totalSeconds - sec;
+    if (mins === 0 && sec === 0) {
+      totalTimeTaken.minutes = "1";
+      totalTimeTaken.seconds = "0";
+    } else {
+      totalTimeTaken.minutes = totalMinutes - mins;
+      totalTimeTaken.seconds = totalSeconds - sec;
+    }
   };
 
   return (
@@ -78,7 +88,10 @@ function Question(props) {
         {quizCtxt.quizSubmitted ? (
           <TimeTaken timeTaken={totalTimeTaken} />
         ) : (
-          <CountdownTimer currentTimer={currentTimeTaken} submitQuiz={submitQuizHandler} />
+          <CountdownTimer
+            currentTimer={currentTimeTaken}
+            submitQuiz={autoSubmit}
+          />
         )}
       </div>
       <DisplayedQuestion

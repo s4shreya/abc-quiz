@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from "react";
 
 import styles from "./CountdownTimer.module.css";
 
-const CountdownTimer = props => {
-  const [timer, setTimer] = useState(300);
+const CountdownTimer = (props) => {
+  const [timer, setTimer] = useState(60);
 
   let timerRef = useRef();
 
@@ -20,9 +20,9 @@ const CountdownTimer = props => {
   let mins = currentTimer.mins,
     sec = currentTimer.sec;
 
-    if(mins === 0 && sec === 0) {
-      props.submitQuiz();
-    }
+  if (mins === 0 && sec === 0) {
+    props.submitQuiz();
+  }
 
   useEffect(() => {
     timerRef.current = setInterval(decreaseTimer, 1000);
@@ -35,7 +35,7 @@ const CountdownTimer = props => {
         <span className={styles.timer}>
           {" "}
           0{mins}:{sec < 10 ? "0" : ""}
-          {sec} <span className={styles["total-time"]}>/ 05:00 </span>
+          {sec} <span className={styles["total-time"]}>/ 01:00 </span>
         </span>
       </div>
     </div>

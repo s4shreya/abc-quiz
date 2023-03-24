@@ -39,7 +39,8 @@ const Result = () => {
           <ul className={styles["col-2"]}>
             <li>Time Taken</li>
             <li>
-              {timeTaken.minutes}:{timeTaken.seconds} <span>min</span>
+              0{timeTaken.minutes}:{timeTaken.seconds < 10 ? "0" : ""}
+              {timeTaken.seconds} <span>min</span>
             </li>
             <li>Avg: 1:59 mins</li>
           </ul>

@@ -13,7 +13,7 @@ const TimeTaken = (props) => {
         <span className={styles.timer}>
           {" "}
           0{mins}:{sec < 10 ? "0" : ""}
-          {sec} <span className={styles["total-time"]}>/ 05:00 </span>
+          {sec} <span className={styles["total-time"]}>/ 01:00 </span>
         </span>
       </div>
     </div>
