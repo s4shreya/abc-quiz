@@ -1,7 +1,82 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    min-width: 60vw;
+}
+
+.question {
+    font-size: larger;
+    margin: 5px 0;
+}
+
+.ruler {
+    background-color: blue;
+    height: 2px;
+    width: 100%;
+}
+
+.list {
+    line-height: 200%;
+}
+
+.list li {
+    font-size: larger;
+    margin: 10px;
+}
+
 .selected {
     background-color: green;
 }
 
 .option {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
+
+.radio {
+    /* float: right; */
+}
+
+.btn {
+    margin: auto;
+    width: 25%;
+    background-color: purple;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: 600;
+  }
+  
+  .next-btn:hover {
+    background-color: rgb(184, 64, 184);
+    cursor: pointer;
+  }
+
+  .next-btn, .submit-btn {
+    float: right;
+  }
+
+  .submit-btn {
+    background-color: green;
+  }
+
+  .submit-btn:hover {
+    background-color: rgb(31, 208, 31);
+    cursor: pointer;
+  }
+
+  .prev-btn {
+    background-color: rgb(50, 128, 183);
+  }
+
+  .prev-btn:hover {
+    background-color: rgb(8, 69, 112);
+    cursor: pointer;
+  }

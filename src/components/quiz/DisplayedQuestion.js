@@ -22,11 +22,13 @@ const DisplayedQuestion = (props) => {
   };
 
   return (
-    <div>
-      <p>
+    <div className={styles.container}>
+      <div className={styles.content}>
+      <p className={styles.question}>
         Q.{question.no} {question.text}
       </p>
-      <ol>
+      <hr className={styles.ruler}/>
+      <ol type="A" className={styles.list}>
         {question.options.map((option, i) => {
             console.log("answers submitted" + props.answersSubmitted);
           return (
@@ -41,21 +43,23 @@ const DisplayedQuestion = (props) => {
                 name={question.no}
                 checked={optionSelected === option.answer}
                 onChange={handleOptionSelection}
+                className={styles.radio}
               />
             </li>
           );
         })}
         {props.currentQuestion > 0 ? (
-          <button onClick={previousQuestion}>Previous</button>
+          <button onClick={previousQuestion} className={`${styles.btn} ${styles["prev-btn"]}`}>Previous</button>
         ) : (
           ""
         )}
         {props.currentQuestion !== 4 ? (
-          <button onClick={nextQuestion}>Next</button>
+          <button onClick={nextQuestion} className={`${styles.btn} ${styles["next-btn"]}`}>Next</button>
         ) : (
-          <button onClick={handleSubmitQuiz}>Submit</button>
+          <button onClick={handleSubmitQuiz} className={`${styles.btn} ${styles["submit-btn"]}`}>Submit</button>
         )}
       </ol>
+      </div>
     </div>
   );
 };
