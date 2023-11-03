@@ -42,10 +42,10 @@ const Result = () => {
               0{timeTaken.minutes}:{timeTaken.seconds < 10 ? "0" : ""}
               {timeTaken.seconds} <span>min</span>
             </li>
-            <li>Avg: 1:59 mins</li>
+            <li>Avg: 0:49 mins</li>
           </ul>
         </div>
-        <h3 className={styles["company-name"]}>seekho</h3>
+        <h3 className={styles["company-name"]}>Quiz</h3>
         <p className={styles.share}>
           <BiShareAlt />
           <span>Share it with your friends!</span>
